@@ -1,7 +1,19 @@
 # depslib dependency file v1.0
-1526501267 source:c:\users\rama\desktop\dfadas\main.c
+1526504435 source:c:\users\rama\desktop\dfadas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
+	<time.h>
+	"funciones.h"
+
+1526514585 c:\users\rama\desktop\dfadas\funciones.h
+
+1526515213 source:c:\users\rama\desktop\dfadas\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	"funciones.h"
 
