@@ -112,8 +112,6 @@ int eUsuario_siguienteId(eUsuario listado[],int limite)
     return retorno+1;
 }
 
-///////////////////////////////////////
-
 int inicializarUsuarios(eUsuario listado[],int limite)
 {
     int retorno = -1;
@@ -300,6 +298,7 @@ int eAuto_alta(eAuto listadoA[],int limiteA,eUsuario listadoU[],int limiteU)
 {
     int retorno = -1;
     int i;
+    int flag = -1;
 
     int id;
     int indice;
@@ -321,6 +320,7 @@ int eAuto_alta(eAuto listadoA[],int limiteA,eUsuario listadoU[],int limiteU)
 
             if(indice >= 0)
             {
+                flag = 0;
                 retorno = 0;
                 id = eAuto_siguienteId(listadoA,limiteA);
 
@@ -337,7 +337,6 @@ int eAuto_alta(eAuto listadoA[],int limiteA,eUsuario listadoU[],int limiteU)
 
 
                 printf("Alta de automovil realizada!\n\n");
-
             }
             else
             {
@@ -345,12 +344,13 @@ int eAuto_alta(eAuto listadoA[],int limiteA,eUsuario listadoU[],int limiteU)
 
             }
         }
-        else
-        {
-            printf("No se ha encontrado el usuario ingresado\n\n");
-            break;
-        }
     }
+
+        if(flag == -1)
+        {
+            printf("No se podido encontrar el usuario\n\n");
+        }
+
 
     return retorno;
 
@@ -493,7 +493,7 @@ void mostrarAutos(eAuto listado[], int limite)
     int i;
     char auxString[20];
 
-    printf("ID AUTO\t\tMARCA\t\t\tPATENTE\n\n");
+    printf("ID AUTO\t\t MARCA\t\tPATENTE\n\n");
 
     //DECLAR UNA AUX STRING PARA PODER ALINEAR EL STRING CON EL NOMBRE DE LA MARCA. BASICAMENTE ES SOLO UNA CUESTION DE PROLIGIDAD
 
@@ -523,7 +523,7 @@ void mostrarAutos(eAuto listado[], int limite)
                 break;
             }
 
-            printf("%20s\n",listado[i].patente);
+            printf("%12s\n",listado[i].patente);
         }
     }
 }
@@ -621,6 +621,7 @@ void recaudacionTotalxMarca(eAuto listado[],int limite)
     }
 
     printf("Recaudacion por autos ALFA ROMEO: $%d\nRecaudacion por autos FERRARI: $%d\nRecaudacion por autos AUDI: $%d\nRecaudacion por autos de OTRAS MARCAS: $%d\n\n",contAlfa,contFerrari,contAudi,contOtros);
+    printf("\nTOTAL: %d\n",recaudacionTotal(listado,limite));
 }
 
 
